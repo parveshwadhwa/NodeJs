@@ -1,0 +1,10 @@
+1. Client sent a request to NodeJs Server.
+2. Now request comes into Event Queue for queuing.
+3. Then it will go to event loop , event loop is just like a machine which watch over event queue that any request comes or not and works in fifo manner
+4. Now when we pick a request from a queue, it will be of two type 
+   a. blocking operations (Synchronous)
+   b. non blocking operations (Asynchronous)
+
+5. Now incase of blocking operations, it will go to thread pool (containing threads) and then it will return result.
+6. By default we have 4 threads/workers , Hence it will be preferable to use asynchronous/non blocking.
+7. We can increase the thread/workers size depends upon the no. of cores of cpu on server/machine. 
