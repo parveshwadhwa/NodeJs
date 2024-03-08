@@ -3,10 +3,13 @@ const app = express();
 const PORT = 8002;
 const { connectMongoDb } = require("./connection");
 const { logRequest } = require("./middlewares");
+const status = require("express-status-monitor");
 
 connectMongoDb('mongodb://127.0.0.1:27017/nodejs');
 
 const UserRouter = require("./routes/user");
+
+app.use(status());
 
 app.use(express.urlencoded({extended: false})); // middlewares
 
